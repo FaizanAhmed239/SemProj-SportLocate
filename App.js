@@ -1,36 +1,35 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
+import React from "react";
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Flex from './Flex.js';
+import SplashScreen from './SplashScreen.js';
 
+const Stack = createStackNavigator();
 
-
-const HelloWorldApp = () => {
+function App({ navigate}) {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-      <Text>Hello, world!</Text>
-    </View>
-  )
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Flex" component={Flex} options={{ headerShown: false }}/>
+        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-export default HelloWorldApp;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 0,
+    fontSize: 100,
+    alignItems: "center"
+  },
+  mainview:{
+    flex:1,
+  },
+});
+
+export default App;
