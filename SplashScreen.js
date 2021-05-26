@@ -10,34 +10,32 @@ import {
   Text,
   useColorScheme,
   View,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
-const App = () => {
+const App = ({ navigation}) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column'}}>
       <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
-          <Image
-            style={styles.Logo}
-            source={require('./circle-cropped.png')}
-          />
-          <Image
-            style={{marginBottom: 60}}
-            source={require('./font-remove.png')}
-          />
+        <TouchableOpacity onPress = {() => navigation.navigate('Flex')}>
+            <Image
+              style={styles.Logo}
+              source={require('./3.png')}
+            />
+        </TouchableOpacity>
       </LinearGradient>
     </View>
-
-
   )
 }
 
 const styles = StyleSheet.create({
   Logo: {
-    width: 285,
-    height: 285,
-    marginBottom: 5,
+    width: 375,
+    height: 375,
+    marginBottom: 20,
   },
   linearGradient: {
     flex: 1,
