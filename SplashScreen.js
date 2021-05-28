@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
@@ -23,7 +22,7 @@ const App = ({ navigation}) => {
         <TouchableOpacity onPress = {() => navigation.navigate('Flex')}>
             <Image
               style={styles.Logo}
-              source={require('./3.png')}
+              source={require('./5.png')}
             />
         </TouchableOpacity>
       </LinearGradient>
@@ -33,8 +32,8 @@ const App = ({ navigation}) => {
 
 const styles = StyleSheet.create({
   Logo: {
-    width: 375,
-    height: 375,
+    width: 450,
+    height: 450,
     marginBottom: 20,
   },
   linearGradient: {
