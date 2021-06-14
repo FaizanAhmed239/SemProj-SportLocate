@@ -38,47 +38,21 @@ const App = () => {
   const [CNIC, onChangeCNIC] = useState(null);
   const [arena_name, onChangeArenaName ] = useState(null);
   const [choice, onChangeChoice] = useState(null);
+  const [address, onChangeAddress] = useState(null);
 
   const clickHandlerST = () =>
   {
-    if(checkedST == false && checkedGZ == false)
-    {
-      setCheckedST(!checkedST);
-    }
-    else
-    {
-      setCheckedST(!checkedST);
-      setCheckedGZ(!checkedGZ);
-    }
-    choiceHandler();
+    setCheckedST(true);
+    setCheckedGZ(false);
+    onChangeChoice("Sports Arena/Turf");
   }
 
   const clickHandlerGZ = () =>
   {
-    if(checkedGZ == false && checkedST == false)
-    {
-      setCheckedGZ(!checkedGZ);
-    }
-    else
-    {
-      setCheckedGZ(!checkedGZ);
-      setCheckedST(!checkedST);
-    }
-    choiceHandler();
+    setCheckedGZ(true);
+    setCheckedST(false);
+    onChangeChoice("Gaming Zone");
   }
-
-  const choiceHandler = () =>
-  {
-    if (checkedGZ == true)
-    {
-      onChangeChoice("Gaming Zone");
-    }
-    else
-    {
-      onChangeChoice("Sports Arena/Turf");
-    }
-  }
- 
 
   return (
     <View style={styles.container}>
@@ -100,7 +74,7 @@ const App = () => {
 
       <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
       <ScrollView>
-        <View style = {{margin: 15, backgroundColor: '#161616'}}>
+        <View style = {{margin: 11 , backgroundColor: '#161616'}}>
             <Text style = {styles.text}> Choose an option: </Text>
             <CheckBox title='Sports Arena/Turf' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={checkedST} onPress={clickHandlerST} textStyle = {{color: 'white', fontSize: 14.5}} containerStyle = {{backgroundColor: 'transparent', borderColor: 'transparent'}} checkedColor = "green" uncheckedColor = "white"/>
             <CheckBox title='Gaming Zone' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={checkedGZ} onPress= {clickHandlerGZ} textStyle = {{color: 'white', fontSize: 14.5}} containerStyle = {{backgroundColor: 'transparent', borderColor: 'transparent'}} checkedColor = "green" uncheckedColor = "white"/>
@@ -110,12 +84,26 @@ const App = () => {
             <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {CNIC} onChangeText = {onChangeCNIC} placeholder = "3520212345678" placeholderTextColor = 'grey' autoCapitalize = "words"/>
             <Text style = {styles.text}> Upload Your Picture: <Text style = {styles.smtext}> (Face Clarity is MUST!)</Text></Text>
 
-            <View style = {{margin: 20, marginBottom: -5}}>
-              <Button title="Upload" color="grey" onPress={() => Alert.alert('STFU')} />
+            <View style = {{margin: 20, marginBottom: -5, marginTop: 9}}>
+              <Button title="Upload" color="grey" onPress={() => Alert.alert('Your pictures')} />
             </View>
             
-            <Text style = {styles.text}> Enter your {choice} name: </Text>
+            <Text style = {styles.text}> Enter your {choice}'s name: </Text>
             <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3 }} value = {arena_name} onChangeText = {onChangeArenaName} placeholder = "Arena/Gaming Zone Name " placeholderTextColor = 'grey' autoCapitalize = "words"/>
+
+            <Text style = {styles.text}> Upload Your {choice}'s Pictures: </Text>
+            <Text style = {styles.smtext}> (5 pictures at max!)</Text>
+
+            <View style = {{margin: 20, marginBottom: -5, marginTop: 9}}>
+              <Button title="Upload" color="grey" onPress={() => Alert.alert('place pictures')} />
+            </View>
+
+            <Text style = {styles.text}> Enter the Address: </Text>
+            <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {address} onChangeText = {onChangeAddress} placeholder = "Address" placeholderTextColor = 'grey' autoCapitalize = "words"/>
+
+            <Text style = {styles.text}> Pin Location on Map: </Text>
+            
+
             
         </View>
       </ScrollView>  
