@@ -7,6 +7,10 @@ import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
 import Flex from './Flex.js';
 import SplashScreen from './SplashScreen.js';
 import OwnerReg from './OwnerReg.js';
+import SignUpOpt from './SignUpOpt.js'
+import SignUpEmail from './SignUpEmail.js'
+import DashBoard from './DashBoard.js'
+import SignIn from './SignIn.js'
 
 const Stack = createStackNavigator();
 
@@ -14,10 +18,12 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="OwnerReg" component={OwnerReg} options={{ headerShown: false}}/>
-        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Flex" component={Flex} options={{ headerShown: false }}/>
-        
+        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false}}/>
+        <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false}}/>
+        <Stack.Screen name="SignUpOpt" component={SignUpOpt} options={{ headerShown: false}}/>
+        <Stack.Screen name="SignUpEmail" component={SignUpEmail} options={{ headerShown: false}}/>
+        <Stack.Screen name="OwnerReg" component={OwnerReg} options={{ headerShown: false }}/>
+        <Stack.Screen name="DashBoard" component={DashBoard} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
