@@ -14,8 +14,7 @@ import {
   Button,
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { CheckBox } from 'react-native-elements'
+import firestore from '@react-native-firebase/firestore';
 
 
 const App = ({navigation}) =>
@@ -33,7 +32,7 @@ const App = ({navigation}) =>
             <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
                 <Image
                 style={styles.smallLogo}
-                source={require('./2.png')}
+                source={require('./smallLogo.png')}
                 />
             </TouchableOpacity>
         </View>

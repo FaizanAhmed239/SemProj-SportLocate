@@ -26,7 +26,7 @@ const App = ({ navigation}) => {
           <View style={{ alignItems: 'center', justifyContent: 'center'}}>
             <Image
               style={styles.Logo}
-              source={require('./5.png')}
+              source={require('./fullLogo.png')}
             />
           </View>
         </LinearGradient>
