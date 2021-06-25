@@ -27,7 +27,7 @@ const App = ({navigation}) =>
             <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
                 <Image
                 style={styles.smallLogo}
-                source={require('./2.png')}
+                source={require('./smallLogo.png')}
                 />
             </TouchableOpacity>
         </View>

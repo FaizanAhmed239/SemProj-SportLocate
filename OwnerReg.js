@@ -59,7 +59,7 @@ const icon = <FontAwesome5 name={'comments'} />;
         <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
             <Image
               style={styles.smallLogo}
-              source={require('./2.png')}
+              source={require('./smallLogo.png')}
             />
         </TouchableOpacity>
         <FontAwesome5 name={'cog'} size = {25} color = "white" style = {{marginRight: 10}} />

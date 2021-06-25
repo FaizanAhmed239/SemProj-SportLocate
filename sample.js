@@ -18,21 +18,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 const App = ({ navigation}) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column'}}>
-      <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
-        <View style= {{justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity onPress = {() => navigation.navigate('SignIn')}>
-              <Image
-                style={styles.Logo}
-                source={require('./smallLogo.png')}
-              />
-              <Image
-                style={styles.LogoText}
-                source={require('./font-remove.png')}
-              />
-          </TouchableOpacity>
+        <View style= {{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'green'}}>
+            
         </View>
-        
-      </LinearGradient>
+
+        <View style= {{flex: 16, justifyContent: 'center', alignItems: 'center',}}>
+            
+        </View>
+    
     </View>
   )
 }

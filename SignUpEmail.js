@@ -14,9 +14,8 @@ import {
   Button,
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { CheckBox } from 'react-native-elements'
-
+import firestore from '@react-native-firebase/firestore';
+import validate from 'validate.js'
 
 const App = ({navigation}) =>
 {
@@ -25,6 +24,9 @@ const App = ({navigation}) =>
     const [userPassword, onChangeUserPassword] = useState(null);
     const [userPasswordReConfirm, onChangeUserPasswordReConfirm] = useState(null);
 
+    //var validate = require("validate.js");
+    const usersCollection = firestore().collection('Users');
+    const userDocument = firestore().collection('Users').doc('ABC');
     //setCheckedGZ(!checkedGZ) && setCheckedST(!checkedST)
   return (
     <View style={styles.container}>
@@ -33,7 +35,7 @@ const App = ({navigation}) =>
           <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
               <Image
               style={styles.smallLogo}
-              source={require('./2.png')}
+              source={require('./smallLogo.png')}
               />
           </TouchableOpacity>
       </View>
@@ -51,10 +53,10 @@ const App = ({navigation}) =>
                 <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {userEmail} onChangeText = {onChangeUserEmail} placeholder = "Enter your E-mail " placeholderTextColor = 'grey' />
 
                 <Text style = {styles.text}> Password: </Text>
-                <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {userPassword} onChangeText = {onChangeUserPassword} placeholder = "Password " placeholderTextColor = 'grey'/>
+                <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {userPassword} onChangeText = {onChangeUserPassword} secureTextEntry = {true} placeholder = "Password " placeholderTextColor = 'grey'/>
                 
                 <Text style = {styles.text}> Confirm Password: </Text>
-                <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {userPasswordReConfirm} onChangeText = {onChangeUserPasswordReConfirm} placeholder = "Re-enter your password " placeholderTextColor = 'grey'/>
+                <TextInput style = {{color: '#e5e4e2', borderBottomWidth: 1, borderBottomColor: 'white' ,borderBottomRightRadius: 30 , marginTop: -7, marginLeft: 3}} value = {userPasswordReConfirm} onChangeText = {onChangeUserPasswordReConfirm} secureTextEntry = {true} placeholder = "Re-enter your password " placeholderTextColor = 'grey'/>
 
                 <View style = {{marginHorizontal: 45, marginTop: 40, marginBottom: 30}}>
                   <Button title="Submit" color="grey" onPress={() => navigation.navigate('DashBoard')} />
