@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from "
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Flex from './Flex.js';
 import SplashScreen from './SplashScreen.js';
@@ -15,11 +16,13 @@ import SignIn from './SignIn.js'
 import sample from './sample.js'
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+
+      {/* <Stack.Navigator>
         <Stack.Screen name="sample" component={sample} options={{ headerShown: false}}/>
 
         <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false}}/>
@@ -28,7 +31,12 @@ function App() {
         <Stack.Screen name="SignUpEmail" component={SignUpEmail} options={{ headerShown: false}}/>
         <Stack.Screen name="OwnerReg" component={OwnerReg} options={{ headerShown: false }}/>
         <Stack.Screen name="DashBoard" component={DashBoard} options={{headerShown: false}}/>
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={sample}/>
+        <Drawer.Screen name="Flex" component={Flex}/>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
