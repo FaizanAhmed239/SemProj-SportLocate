@@ -19,19 +19,19 @@ const App = ({ navigation}) => {
   return (
     <View style={{ flex: 1, flexDirection: 'column'}}>
       <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
-        <View style= {{justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity onPress = {() => navigation.navigate('SignIn')}>
+          <TouchableOpacity onPress = {() => navigation.navigate('SignInOpt')}>
               <Image
                 style={styles.Logo}
                 source={require('./smallLogo.png')}
               />
-              <Image
-                style={styles.LogoText}
-                source={require('./font-remove.png')}
-              />
+              <View style = {{marginTop: -60, marginBottom: 30}}>
+                <Image
+                  style={styles.LogoText}
+                  source={require('./font-remove.png')}
+                />
+              </View>
+              
           </TouchableOpacity>
-        </View>
-        
       </LinearGradient>
     </View>
   )
@@ -41,16 +41,15 @@ const styles = StyleSheet.create({
   Logo: {
     width: 390,
     height: 390,
-    alignSelf: 'center',
-    marginTop: 135
+    alignSelf: 'center'
   },
   LogoText: {
     alignSelf: 'center',
-    marginTop:-55
   },
   linearGradient: {
     flex: 1,
     flexDirection: 'column',
+    justifyContent: 'center' 
     //
   },
   textStyle: {

@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 import {
   SafeAreaView,
   ScrollView,
@@ -36,7 +37,7 @@ function SignInGoogle() {
   if (!user) {
     return (
       <View>
-        <Text>Login</Text>
+       { /* <Text>Login</Text> */}
       </View>
     );
   }
@@ -71,12 +72,13 @@ const style = StyleSheet.create({
   },
 });
 
-const App = ({ navigation}) => {
+const App = ({navigation}) => {
     return (
       <View style={{ flex: 1, flexDirection: 'column'}}>
-        <View style={{flex: 1.3, justifyContent: 'center', backgroundColor: 'black', paddingBottom: 10, paddingTop:10, paddingLeft: 15}}>
+
+        <View style={{flex: 1.3, justifyContent: 'center', backgroundColor: '#171717', paddingBottom: 10, paddingTop:10, paddingLeft: 15, elevation: 10}}>
             <Text style = {{fontSize: 35, color: "white", fontWeight: 'bold'}}>Let's get Started,</Text>
-            <Text style = {{fontSize: 15, color: "white",}}>Sign Up to experience all app features</Text>
+            <Text style = {{fontSize: 15, color: "white",}}>Please Sign In to Continue</Text>
         </View>
         <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
           <View style={{ alignItems: 'center', justifyContent: 'space-evenly'}}>
@@ -87,49 +89,46 @@ const App = ({ navigation}) => {
           </View>
         </LinearGradient>
 
-        <View style={{flex: 3.2,backgroundColor: 'black', justifyContent: 'space-evenly'}}>
-              <TouchableOpacity onPress = {() => navigation.navigate('SignUpEmail')}>
+
+        <View style={{flex: 3.2,backgroundColor: '#171717', justifyContent: 'space-evenly'}}>
+            <TouchableOpacity onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}>
+              <View style={styles.buttonStyle}>
+                <Image
+                  style={styles.tinyLogo}
+                  source={{
+                  uri: 'https://img.icons8.com/fluent/48/000000/google-logo.png',}}
+                />
+              <Text style = {{fontSize: 17, color: "black", fontWeight: 'bold',marginTop: 3, marginRight:50}}>Sign In with Google</Text>
+              </View>
+            </TouchableOpacity>
+
+              <TouchableOpacity onPress = {() => navigation.navigate('SignIn')}>
                 <View style={styles.buttonStyle}>
                   <View style={styles.tinyLogo}>
                     <FontAwesome5 name={'envelope'} size = {28} color = "black" />
                   </View>
-                  <Text style = {{fontSize: 17, color: "black", fontWeight: 'bold', marginTop: 3}}>Sign Up with Email</Text>
-                </View>
-              </TouchableOpacity>
-
-              <View style = {{flexDirection: 'row', justifyContent: 'center', marginBottom: -12, }}>
-                <Text style = {{fontSize: 15, color: "white", alignSelf: 'center', }}>Owner? Get your place </Text>
-                <TouchableOpacity onPress = {() => navigation.navigate('OwnerReg')}>
-                  <Text style = {{fontSize: 15, color: "#20A7DB", fontWeight: 'bold', }}>Registered</Text>
-                </TouchableOpacity>
-              </View>
-
-              <TouchableOpacity onPress = {() => navigation.navigate('OwnerReg')}>
-                <View style={styles.buttonStyle}>
-                  <View style={styles.tinyLogo}>
-                    <FontAwesome5 name={'user-tie'} size = {28} color = "black" />
-                  </View>
-                  <Text style = {{fontSize: 17, color: "black", fontWeight: 'bold', marginTop: 3}}>Owner Registration</Text>
+                  <Text style = {{fontSize: 17, color: "black", fontWeight: 'bold', marginTop: 3}}>Sign In with Email</Text>
                 </View>
               </TouchableOpacity>
 
               <View style = {{flexDirection: 'row', justifyContent: 'center', margin: -1}}>
-                <Text style = {{fontSize: 15, color: "white", alignSelf: 'center', marginBottom: 0}}>Already have an account? </Text>
-                <TouchableOpacity onPress = {() => navigation.navigate('SignIn')}>
-                  <Text style = {{fontSize: 15, color: "#20A7DB", fontWeight: 'bold', marginBottom: 0}}>Sign In</Text>
+                <Text style = {{fontSize: 15, color: "white", alignSelf: 'center', marginBottom: 0}}>Don't have an account? </Text>
+                <TouchableOpacity onPress = {() => navigation.navigate('SignUpOpt')}>
+                  <Text style = {{fontSize: 15, color: "#20A7DB", fontWeight: 'bold', marginBottom: 0}}>Sign Up</Text>
                 </TouchableOpacity>
               </View>
-                   
+              
         </View>
         
+        <SignInGoogle/>
       </View>
     )
   }
   
   const styles = StyleSheet.create({
     Logo: {
-      width: 500,
-      height: 500,
+      width: 450,
+      height: 450,
     },
     linearGradient: {
       flex: 6.6,
@@ -159,7 +158,7 @@ const App = ({ navigation}) => {
     tinyLogo: {
       width: 30,
       height: 30,
-      marginRight:48
+      marginRight:50,
     },
 
   });
