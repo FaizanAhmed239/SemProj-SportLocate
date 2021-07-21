@@ -23,7 +23,7 @@ const Drawer = createDrawerNavigator();
 
 
 GoogleSignin.configure({
-  webClientId: '688143256686-em4iib976qsh1tr25rk8ribn3kbgat5a.apps.googleusercontent.com',
+  webClientId: '688143256686-kl5vf3cmgupufh4l19rguka0k9j454a3.apps.googleusercontent.com',
 });
 
 function App() {

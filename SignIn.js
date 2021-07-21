@@ -12,6 +12,7 @@ import {
   ScrollView,
   TextInput,
   Button,
+  SafeAreaView
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import firestore from '@react-native-firebase/firestore';
@@ -26,21 +27,21 @@ const App = ({navigation}) =>
 
     //setCheckedGZ(!checkedGZ) && setCheckedST(!checkedST)
     return (
-        <View style={styles.container}>
-        <StatusBar  barStyle = "dark-content"   ></StatusBar>
-        <View style = {styles.header}>
+        <SafeAreaView style={styles.container}>
+          <StatusBar  barStyle = "dark-content"   ></StatusBar>
+          <View style = {styles.header}>
             <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
                 <Image
                 style={styles.smallLogo}
                 source={require('./smallLogo.png')}
                 />
             </TouchableOpacity>
-        </View>
-        <View style = {styles.subheader}>
+          </View>
+          <View style = {styles.subheader}>
             <Text style={{fontSize: 25, color: 'white', fontWeight: 'bold'}}>Sign In</Text>
-        </View>
+          </View>
 
-        <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
+          <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
             <View style = {{margin: 11 , backgroundColor: '#161616'}}>
                 <View style = {{justifyContent: 'center', padding: 5, paddingTop: 100, paddingBottom: 60, marginTop: 70, marginLeft: 10}}>
                     <Text style = {styles.text}> Email: </Text>
@@ -62,7 +63,7 @@ const App = ({navigation}) =>
                 </View>
             </View>
         </LinearGradient>
-        </View>
+        </SafeAreaView>
     )
 };
 
