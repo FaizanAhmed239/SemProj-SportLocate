@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import SplashScreen from 'react-native-splash-screen';
 import {
   SafeAreaView,
   ScrollView,
@@ -15,7 +16,13 @@ import {
 import { createStackNavigator } from '@react-navigation/stack';
 
 
+
 const App = ({ navigation}) => {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <View style={{ flex: 1, flexDirection: 'column'}}>
       <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>

@@ -1,15 +1,16 @@
-import React from "react";
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import SplashScreen from 'react-native-splash-screen';
+import React, {useEffect} from 'react';
 
 //import Flex from './Flex.js';
 //import sample from './sample.js'
-
-import SplashScreen from './SplashScreen.js';
+//<Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false}}/>
+//import SplashScreen from './SplashScreen.js';
 import OwnerReg from './OwnerReg.js';
 import SignUpOpt from './SignUpOpt.js'
 import SignUpEmail from './SignUpEmail.js'
@@ -27,12 +28,17 @@ GoogleSignin.configure({
 });
 
 function App() {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <NavigationContainer>
        <Stack.Navigator>
         {/*<Stack.Screen name="sample" component={sample} options={{ headerShown: false}} />*/} 
 
-        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false}}/>
+        
         <Stack.Screen name="SignInOpt" component={SignInOpt} options={{ headerShown: false}}/>
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false}}/>
         <Stack.Screen name="SignUpOpt" component={SignUpOpt} options={{ headerShown: false}}/>
