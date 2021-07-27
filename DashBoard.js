@@ -4,7 +4,6 @@ import React, {useState, Component} from 'react';
 import {
   StatusBar,
   StyleSheet,
-  Text,
   View,
   Image,
   TouchableOpacity,
@@ -15,7 +14,9 @@ import {
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import AntIcon from "react-native-vector-icons/AntDesign";
 import { CheckBox } from 'react-native-elements'
+import { NativeBaseProvider, Text, Box } from 'native-base';
 
 
 const App = ({navigation}) =>
@@ -24,13 +25,39 @@ const App = ({navigation}) =>
     <View style={styles.container}>
         <StatusBar  barStyle = "dark-content"   ></StatusBar>
         <View style = {styles.header}>
-            <TouchableOpacity onPress={() => alert('This is a button!')} style = {{marginLeft: 10}}>
+            <TouchableOpacity onPress={() => alert('This is a button!')} >
+                {
+                    <FontAwesome5 name={'bars'} size = {25} color = "white" style = {{marginLeft: 15}} />
+                }
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => alert('This is a button!')} >
                 <Image
                 style={styles.smallLogo}
                 source={require('./smallLogo.png')}
                 />
             </TouchableOpacity>
+            <AntIcon name="notification" color="white" size={25} style = {{marginRight: 15}} />
         </View>
+        
+        
+
+{
+    /*
+
+    <NativeBaseProvider>
+      <Box flex={1} bg="#abcd" alignItems="center" justifyContent="center">
+        <Text>Open up App.js to start working on your app!</Text>
+      </Box>
+    </NativeBaseProvider>
+
+
+
+    */
+}
+        
+    
+    
+    
 
         <LinearGradient colors={['#389c38', '#5ea75e', '#007f00']} style={styles.linearGradient}>
             
@@ -47,9 +74,10 @@ container: {
 },
 header: {
     flex: 1, 
-    backgroundColor: 'black',  
+    backgroundColor: 'black', 
+    flexDirection: 'row', 
     alignItems: 'center', 
-    justifyContent: 'center'
+    justifyContent: 'space-between' 
 },
 subheader: {
     alignItems: 'center', 

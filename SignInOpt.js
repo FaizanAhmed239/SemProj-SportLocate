@@ -65,8 +65,7 @@ function SignIn() {
   },);
 
   if (initializing) return null;
-  else return null;
-{/*
+
   if (!user) {
     return (
       <Text>No user signed in!</Text>
@@ -77,8 +76,8 @@ function SignIn() {
     <Text>User signed in!</Text>
   );
 
-  */
-}
+  
+
 
 }
 
@@ -99,7 +98,7 @@ const App = ({navigation}) => {
     return (
       <SafeAreaView style={{ flex: 1, flexDirection: 'column'}}>
         < SignIn />
-        
+        <Button title = "Logout" onPress = {LogOut}/> 
         <View style={{flex: 1.3, justifyContent: 'center', backgroundColor: '#171717', paddingBottom: 10, paddingTop:10, paddingLeft: 15, elevation: 10}}>
             <Text style = {{fontSize: 35, color: "white", fontWeight: 'bold'}}>Let's get Started,</Text>
             <Text style = {{fontSize: 15, color: "white",}}>Please Sign In to Continue</Text>

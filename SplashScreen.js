@@ -1,3 +1,11 @@
+{
+
+  /*
+
+
+
+
+
 import 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import React, {useEffect} from 'react';
@@ -70,3 +78,6 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+*/
+}

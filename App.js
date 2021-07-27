@@ -38,13 +38,13 @@ function App() {
        <Stack.Navigator>
         {/*<Stack.Screen name="sample" component={sample} options={{ headerShown: false}} />*/} 
 
-        
+        <Stack.Screen name="DashBoard" component={DashBoard} options={{headerShown: false}}/>
         <Stack.Screen name="SignInOpt" component={SignInOpt} options={{ headerShown: false}}/>
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false}}/>
         <Stack.Screen name="SignUpOpt" component={SignUpOpt} options={{ headerShown: false}}/>
         <Stack.Screen name="SignUpEmail" component={SignUpEmail} options={{ headerShown: false}}/>
         <Stack.Screen name="OwnerReg" component={OwnerReg} options={{ headerShown: false }}/>
-        <Stack.Screen name="DashBoard" component={DashBoard} options={{headerShown: false}}/>
+        
       </Stack.Navigator> 
 
       {/* <Drawer.Navigator>
